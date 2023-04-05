@@ -11,6 +11,8 @@ jobs:
         with:
           node-version: 18.x
       - name: Install
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: npm ci
       - name: run tests
         run: npm run test -- --no-watch --code-coverage --browsers=ChromeHeadlessCI
