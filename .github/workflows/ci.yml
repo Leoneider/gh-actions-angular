@@ -1,16 +1,25 @@
 name: CI for Angular
-on: push
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 jobs:
-  unit-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone
+      - name: Checkout 🌱
         uses: actions/checkout@v3
       - name: Node Setup
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - name: Install
+      - name: Install 🚧
         run: npm ci
-      - name: run tests
+      - name: run tests 🧪
         run: npm run test -- --no-watch --code-coverage --browsers=ChromeHeadlessCI
+      - name: Build 🏗️
+        run:  console.log('Building')
+      - name: Deploy 🚀
+        run:  console.log('Deploying')
