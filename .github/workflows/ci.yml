@@ -20,6 +20,6 @@ jobs:
       - name: run tests 🧪
         run: npm run test -- --no-watch --code-coverage --browsers=ChromeHeadlessCI
       - name: Build 🏗️
-        run:  console.log('Building')
+        run:  echo "Building"
       - name: Deploy 🚀
-        run:  console.log('Deploying')
+        run:  echo "Deploying"
